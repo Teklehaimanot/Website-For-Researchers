@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Sections from "./components/Sections";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(getInitialTheme());
+
+  function getInitialTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme === "dark";
+    }
+    return (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
+  }
+
+  const toggleTheme = () => {
+    const newTheme = isDarkMode ? "light" : "dark";
+    setIsDarkMode(newTheme === "dark");
+    localStorage.setItem("theme", newTheme);
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div
+        className={
+          isDarkMode
+            ? "bg-dark-bg2 text-dark-text"
+            : "bg-light-bg2 text-light-text"
+        }
+      >
+        <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+        <Sections isDarkMode={isDarkMode} />
+      </div>
+    </BrowserRouter>
   );
 }
 
