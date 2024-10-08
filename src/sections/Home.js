@@ -3,12 +3,13 @@ import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa";
 
 const Home = ({ isDarkMode }) => {
   return (
     <section
       id="about"
-      className={`min-h-screen pt-20 ${
+      className={`pt-20 pb-10 ${
         isDarkMode ? "bg-dark-bg text-dark-text" : "bg-light-bg text-light-text"
       }`}
     >
@@ -70,22 +71,58 @@ const Home = ({ isDarkMode }) => {
           </ul>
         </div>
         <div className="w-3/5">
-          <p className=" font-serif text-xl my-7 text-pretty leading-relaxed tracking-wide ">
-            I am Waleed, a PhD Fellow in Geography focusing on remote sensing,
-            geo-analytics, cloud computing, and artificial intelligence for
-            disaster risk management, particularly for flood hazard. Besides, I
-            am a Google Developer Expert in Earth Engine category. I am also
-            working part-time on Fiverr, where I provide geospatial analytics
-            and Google Earth Engine related consultancy services. My ultimate
-            goal is to develop new (open-source) techniques or methods to
-            improve the accuracy and effectiveness of flood hazard mapping,
-            monitoring, and risk assessment. I am also interested in creating
-            open-sourced tools, which can simplify existing geospatial analysis.
-            I am always enthusiastic about connecting with like-minded
-            professionals who share my passion for geospatial analytics, and I
-            welcome any opportunity to collaborate and create a positive impact
-            together.
-          </p>
+          <div>
+            <p className=" font-serif text-xl my-5 text-pretty leading-relaxed tracking-wide ">
+              I am Waleed, a PhD Fellow in Geography focusing on remote sensing,
+              geo-analytics, cloud computing, and artificial intelligence for
+              disaster risk management, particularly for flood hazard. Besides,
+              I am a Google Developer Expert in Earth Engine category. I am also
+              working part-time on Fiverr, where I provide geospatial analytics
+              and Google Earth Engine related consultancy services. My ultimate
+              goal is to develop new (open-source) techniques or methods to
+              improve the accuracy and effectiveness of flood hazard mapping,
+              monitoring, and risk assessment. I am also interested in creating
+              open-sourced tools, which can simplify existing geospatial
+              analysis. I am always enthusiastic about connecting with
+              like-minded professionals who share my passion for geospatial
+              analytics, and I welcome any opportunity to collaborate and create
+              a positive impact together.
+            </p>
+          </div>
+          <div className="flex flex-row  space-x-10">
+            <div className="w-1/2">
+              <h3 className=" text-2xl font-serif">Interests</h3>
+              <ul className=" ml-7 my-2  font-serif  leading-relaxed tracking-wide list-disc list-inside space-y-2">
+                <li>Remote Sensing & GIS</li>
+                <li>Applied Machine Learning</li>
+                <li>Google Earth Engine</li>
+                <li>Disaster Risk Management (Floods)</li>
+              </ul>
+            </div>
+            <div className="1/2">
+              <h3 className=" text-2xl font-serif">Education</h3>
+              <ul className=" ml-7 my-2  font-serif  leading-relaxed tracking-wide space-y-3">
+                <li className=" flex flex-row space-x-4 ">
+                  <FaGraduationCap size={24} />
+                  <div className="font-serif  leading-relaxed tracking-wide">
+                    <p>PhD in Geography (cont.), 2026</p>
+                    <p className=" font-light  text-sm text-gray-500">
+                      Hong Kong Baptist University - HK
+                    </p>
+                  </div>
+                </li>
+                <li className=" flex flex-row space-x-4 ">
+                  <FaGraduationCap size={24} />
+                  <div className="font-serif  leading-relaxed tracking-wide">
+                    <p>PhD in Geography (cont.), 2026</p>
+                    <p className=" font-light  text-sm text-gray-500">
+                      Hong Kong Baptist University - HK
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

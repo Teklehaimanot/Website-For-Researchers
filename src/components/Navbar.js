@@ -49,16 +49,14 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               </svg>
             </button>
           </div>
-          {/* <div className="flex items-center">
-            <span className="text-white text-lg font-bold">Your Logo</span>
-          </div> */}
+
           <div className="hidden md:flex">
             <a
               href="#about"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover: text-light-primary"
+                  : " text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium  `}
             >
               Home
@@ -68,7 +66,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover: text-light-primary"
+                  : " text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}
@@ -79,7 +77,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover: text-light-primary"
+                  : " text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}
@@ -90,7 +88,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover: text-light-primary"
+                  : " text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}
@@ -101,7 +99,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover: text-light-primary"
+                  : " text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}
@@ -112,7 +110,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover: text-light-primary"
+                  : " text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}
@@ -123,7 +121,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover: text-light-primary"
+                  : " text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}

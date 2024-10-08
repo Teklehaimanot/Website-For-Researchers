@@ -1,14 +1,12 @@
 import React from "react";
 import Home from "../sections/Home";
+import Projects from "../sections/Projects";
 
 const Sections = ({ isDarkMode }) => {
   return (
     <main className="">
       <Home isDarkMode={isDarkMode} />
-      <section id="projects" className="min-h-screen  p-10">
-        <h1 className="text-4xl font-bold">Section 2</h1>
-        <p className="mt-4">Content for Section 2.</p>
-      </section>
+      <Projects isDarkMode={isDarkMode} />
 
       <section id="publications" className="min-h-screen  text-white p-10">
         <h1 className="text-4xl font-bold">Section 3</h1>
