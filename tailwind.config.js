@@ -10,13 +10,16 @@ module.exports = {
           bg2: "#23252f",
           text: "#ffffff",
           primary: "#4a90e2",
+          secondary: "#f8f8f2",
+          icon: "#0e76a8",
           // Add more colors as needed
         },
         light: {
           bg: "#fff",
-          bg2: "#D3D3D3",
+          bg2: "#efefef",
           text: "#333333",
           primary: "#1a202c",
+          icon: "#bbdefb",
           // Add more colors as needed
         },
       },

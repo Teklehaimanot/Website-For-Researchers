@@ -5,10 +5,7 @@ const Sections = ({ isDarkMode }) => {
   return (
     <main className="">
       <Home isDarkMode={isDarkMode} />
-      <section
-        id="projects"
-        className="min-h-screen bg-dark-bg2 text-white p-10"
-      >
+      <section id="projects" className="min-h-screen  p-10">
         <h1 className="text-4xl font-bold">Section 2</h1>
         <p className="mt-4">Content for Section 2.</p>
       </section>

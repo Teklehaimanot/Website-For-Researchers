@@ -59,7 +59,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
                   : " text-light-text hover: text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium `}
+              } px-3 py-2 rounded-md text-sm font-medium  `}
             >
               Home
             </a>
