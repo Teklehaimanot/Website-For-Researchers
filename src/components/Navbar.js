@@ -54,7 +54,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
           </div> */}
           <div className="hidden md:flex">
             <a
-              href="#section1"
+              href="#about"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
@@ -64,7 +64,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               Home
             </a>
             <a
-              href="#section2"
+              href="#projects"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
@@ -75,7 +75,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               Projects
             </a>
             <a
-              href="#section3"
+              href="#publications"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
@@ -86,7 +86,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               Publications
             </a>
             <a
-              href="#section4"
+              href="#posts"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
@@ -97,7 +97,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               Posts
             </a>
             <a
-              href="#section5"
+              href="#research"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
@@ -108,7 +108,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               Research
             </a>
             <a
-              href="#section6"
+              href="#visualizations"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
@@ -116,7 +116,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}
-              Visualization
+              Visualizations
             </a>
             <a
               href="#"
@@ -156,7 +156,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
       {isOpen && (
         <nav className="md:hidden mt-2">
           <a
-            href="#section1"
+            href="#about"
             className={`block ${
               isDarkMode
                 ? "text-dark-text  hover:bg-dark-bg"
@@ -167,7 +167,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             Home
           </a>
           <a
-            href="#section2"
+            href="#projects"
             className={`block ${
               isDarkMode
                 ? "text-dark-text  hover:bg-dark-bg"
@@ -178,7 +178,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             Projects
           </a>
           <a
-            href="#section3"
+            href="#publications"
             className={`block ${
               isDarkMode
                 ? "text-dark-text  hover:bg-dark-bg"
@@ -189,7 +189,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             Publications
           </a>
           <a
-            href="#section4"
+            href="#posts"
             className={`block ${
               isDarkMode
                 ? "text-dark-text  hover:bg-dark-bg"
@@ -200,7 +200,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             Posts
           </a>
           <a
-            href="#section5"
+            href="#research"
             className={`block ${
               isDarkMode
                 ? "text-dark-text  hover:bg-dark-bg"
@@ -211,7 +211,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             Research
           </a>
           <a
-            href="#section6"
+            href="#visualizations"
             className={`block ${
               isDarkMode
                 ? "text-dark-text  hover:bg-dark-bg"
@@ -219,7 +219,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             } px-3 py-2 rounded-md text-sm font-medium `}
             onClick={toggleDrawer}
           >
-            Visualization
+            Visualizations
           </a>
           <a
             href="#"

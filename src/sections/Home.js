@@ -3,7 +3,7 @@ import React from "react";
 const Home = ({ isDarkMode }) => {
   return (
     <section
-      id="section1"
+      id="about"
       className={`min-h-screen pt-20 ${
         isDarkMode ? "bg-dark-bg text-dark-text" : "bg-light-bg text-light-text"
       }`}
