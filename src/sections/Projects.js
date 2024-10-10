@@ -3,9 +3,9 @@ import React from "react";
 const Projects = ({ isDarkMode }) => {
   const arr = [1, 2, 3, 4, 5, 6];
   return (
-    <section id="projects">
+    <section id="projects" className="pt-20 pb-12">
       <div className="flex flex-col w-5/6 mx-auto">
-        <div className=" mx-auto my-10">
+        <div className=" mx-auto mb-5">
           <h1 className="text-4xl font-serif leading-relaxed"> Projects</h1>
         </div>
         <div className=" flex flex-row flex-wrap w-full gap-10  justify-center py-2  ">
