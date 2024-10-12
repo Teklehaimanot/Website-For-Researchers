@@ -84,7 +84,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               Publications
             </a>
             <a
-              href="#posts"
+              href="#workshop"
               className={`${
                 isDarkMode
                   ? "text-dark-text hover:text-dark-primary"
@@ -92,29 +92,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               } px-3 py-2 rounded-md text-sm font-medium `}
             >
               {" "}
-              Posts
-            </a>
-            <a
-              href="#research"
-              className={`${
-                isDarkMode
-                  ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover:text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium `}
-            >
-              {" "}
-              Research
-            </a>
-            <a
-              href="#visualizations"
-              className={`${
-                isDarkMode
-                  ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover:text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium `}
-            >
-              {" "}
-              Visualizations
+              Workshop & Presentations
             </a>
             <a
               href="#"
@@ -187,7 +165,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             Publications
           </a>
           <a
-            href="#posts"
+            href="#workshop"
             className={`block ${
               isDarkMode
                 ? "text-dark-text  hover:bg-dark-bg"
@@ -195,29 +173,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             } px-3 py-2 rounded-md text-sm font-medium `}
             onClick={toggleDrawer}
           >
-            Posts
-          </a>
-          <a
-            href="#research"
-            className={`block ${
-              isDarkMode
-                ? "text-dark-text  hover:bg-dark-bg"
-                : " text-light-text hover:bg-light-bg"
-            } px-3 py-2 rounded-md text-sm font-medium `}
-            onClick={toggleDrawer}
-          >
-            Research
-          </a>
-          <a
-            href="#visualizations"
-            className={`block ${
-              isDarkMode
-                ? "text-dark-text  hover:bg-dark-bg"
-                : " text-light-text hover:bg-light-bg"
-            } px-3 py-2 rounded-md text-sm font-medium `}
-            onClick={toggleDrawer}
-          >
-            Visualizations
+            Workshop & Presentations
           </a>
           <a
             href="#"
