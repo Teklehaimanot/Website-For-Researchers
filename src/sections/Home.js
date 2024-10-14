@@ -21,7 +21,7 @@ const Home = ({ isDarkMode }) => {
               alt="profile preview"
               className=" w-[17vw] h-[17vw] rounded-full object-cover mx-auto"
             />
-            <h2 className=" text-4xl font-light ">Teklehaimanot</h2>
+            <h2 className=" text-4xl font-light ">Desalew</h2>
             <h3 className="text-lg text-gray-500">
               PhD Researcher | Google Developer Expert
             </h3>
