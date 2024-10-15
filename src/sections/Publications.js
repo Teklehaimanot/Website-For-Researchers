@@ -7,7 +7,6 @@ const Publications = ({ isDarkMode }) => {
   const token = process.env.REACT_APP_TOKKEN;
   const api = process.env.REACT_APP_API_URL;
   const [loading, setLoading] = useState(true);
-  const arr = [1, 2, 3, 4, 5];
 
   const fetchData = async () => {
     try {
@@ -36,7 +35,8 @@ const Publications = ({ isDarkMode }) => {
     fetchData();
   }, []);
 
-  console.log(publications);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
   return (
     <section
       id="publications"
