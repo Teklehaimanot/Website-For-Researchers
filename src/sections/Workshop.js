@@ -1,44 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-
-const Workshop = () => {
-  const [workshops, setWorkshops] = useState([]);
-  const [error, setError] = useState("");
-  const token = process.env.REACT_APP_TOKKEN;
-  const api = process.env.REACT_APP_API_URL;
-  const [loading, setLoading] = useState(true);
-
-  const arr = [1, 2, 3, 4, 5];
-
-  const fetchData = async () => {
-    try {
-      const headers = {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      };
-
-      const responsse = await axios.get(
-        `${api}/api/workshop-and-presentations1`,
-        {
-          headers,
-        }
-      );
-
-      const result = await responsse.data;
-      setWorkshops(result.data);
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+const Workshop = ({ workshops }) => {
   return (
     <section id="workshop" className=" pt-20 pb-20">
       <div className=" w-3/4 mx-auto">

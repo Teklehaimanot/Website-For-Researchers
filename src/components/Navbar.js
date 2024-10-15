@@ -3,41 +3,12 @@ import DarkMode from "./DarkMode";
 import LightMode from "./LightMode";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
-import axios from "axios";
 
-const Navbar = ({ toggleTheme, isDarkMode }) => {
+const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const [profile, setProfile] = useState("");
-  const [error, setError] = useState("");
-  const token = process.env.REACT_APP_TOKKEN;
-  const api = process.env.REACT_APP_API_URL;
-  const [loading, setLoading] = useState(true);
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
-  };
-
-  const feathData = async () => {
-    try {
-      const headers = {
-        Authorization: `Bearer ${token}`, // Add Authorization header
-        "Content-Type": "application/json",
-      };
-      const response = await axios.get(
-        `${api}/api/profile?populate=social_medias`,
-        {
-          headers,
-        }
-      );
-
-      const result = response.data;
-      setProfile(result.data);
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-    }
   };
 
   useEffect(() => {
@@ -46,13 +17,6 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
     }
   }, [isDarkMode]);
 
-  useEffect(() => {
-    feathData();
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  // console.log("tek", profile);
   return (
     <header
       className={`p-4 fixed top-0 left-0 w-full z-10 shadow-md    ${

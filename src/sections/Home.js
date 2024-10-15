@@ -6,61 +6,8 @@ import { FaGithub } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa";
 import axios from "axios";
 
-const Home = ({ isDarkMode }) => {
-  const [profile, setProfile] = useState("");
-  const [Interests, setInterests] = useState("");
-  const [educations, setEducations] = useState("");
-  const [error, setError] = useState("");
-
-  const token = process.env.REACT_APP_TOKKEN;
+const Home = ({ isDarkMode, profile, Interests, educations }) => {
   const api = process.env.REACT_APP_API_URL;
-  const [loading, setLoading] = useState(true);
-
-  const feachData = async () => {
-    try {
-      const headers = {
-        Authorization: `Bearer ${token}`, // Add Authorization header
-        "Content-Type": "application/json",
-      };
-
-      const response1 = await axios.get(
-        `${api}/api/profile?populate[profile_pic]=*&&populate[social_medias]=*`,
-        {
-          headers,
-        }
-      );
-      const response2 = await axios.get(`${api}/api/interests1`, {
-        headers,
-      });
-      const response3 = await axios.get(`${api}/api/educations`, {
-        headers,
-      });
-
-      const [result1, result2, result3] = await Promise.all([
-        response1,
-        response2,
-        response3,
-      ]);
-      setProfile(result1.data.data);
-      setInterests(result2.data.data);
-      setEducations(result3.data.data);
-
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-      console.log("er", error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    feachData();
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  // console.log(profile);
   return (
     <section
       id="about"
