@@ -50,7 +50,9 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
     feathData();
   }, []);
 
-  console.log("tek", profile);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  // console.log("tek", profile);
   return (
     <header
       className={`p-4 fixed top-0 left-0 w-full z-10 shadow-md    ${
