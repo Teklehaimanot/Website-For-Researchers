@@ -57,11 +57,7 @@ const Projects = ({ isDarkMode }) => {
                   <div className="mb-5 text-gray-500 text-sm">
                     <span>Last updated on {project.last_updated}</span>
                   </div>
-                  <a
-                    href="https://github.com/Teklehaimanot"
-                    target="blank"
-                    className="z-10"
-                  >
+                  <a href={project.link} target="blank" className="z-10">
                     <div>
                       <img
                         src={api + "/" + project.image?.url}
@@ -70,15 +66,18 @@ const Projects = ({ isDarkMode }) => {
                       />
                     </div>
                   </a>
-                  <div className="mt-5 ">
+                  <div className="my-3 underline ">
                     <a
-                      href="https://github.com/Teklehaimanot"
+                      href={project.link}
                       target="blank"
                       className="text-xl  hover:text-blue-700"
                     >
                       {project.title}
                     </a>
                   </div>
+                  <di className=" py-2">
+                    <p>{project.description}</p>
+                  </di>
                 </div>
               );
             })}
