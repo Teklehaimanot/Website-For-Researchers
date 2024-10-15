@@ -1,10 +1,10 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Sections from "./components/Sections";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "./components/Loader";
+import MyCv from "./components/MyCv";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(getInitialTheme());
@@ -66,25 +66,8 @@ function App() {
     feathData();
   }, []);
 
-  if (loading)
-    return (
-      <div className=" flex justify-center min-h-screen">
-        <div className=" my-auto">
-          <Loader />
-        </div>
-      </div>
-    );
-  if (error)
-    return (
-      <div className=" flex justify-center min-h-screen">
-        <div className=" my-auto">
-          <p className=" text-red-500">{error.message} </p>
-        </div>
-      </div>
-    );
-
   return (
-    <BrowserRouter>
+    <Router>
       <div
         className={
           isDarkMode
@@ -97,9 +80,13 @@ function App() {
           isDarkMode={isDarkMode}
           profile={profile}
         />
-        <Sections isDarkMode={isDarkMode} />
+
+        <Routes>
+          <Route path="/" element={<Sections isDarkMode={isDarkMode} />} />
+          <Route path="/cv" element={<MyCv />} />
+        </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

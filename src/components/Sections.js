@@ -104,7 +104,7 @@ const Sections = ({ isDarkMode }) => {
     );
 
   return (
-    <main className="">
+    <main className="content">
       <Home
         isDarkMode={isDarkMode}
         profile={profile}

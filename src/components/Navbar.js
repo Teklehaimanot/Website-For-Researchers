@@ -3,29 +3,65 @@ import DarkMode from "./DarkMode";
 import LightMode from "./LightMode";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(""); // To track the active section
+  const navigate = useNavigate();
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  }, [isDarkMode]);
+    const handleScroll = () => {
+      const sections = ["about", "projects", "publications", "workshop", "cv"]; // Added 'cv' to the list
+      let currentSection = "";
+
+      // Loop through each section and determine which one is in view
+      for (const section of sections) {
+        const sectionElement = document.getElementById(section);
+        if (sectionElement) {
+          const { top, bottom } = sectionElement.getBoundingClientRect();
+          if (top <= 100 && bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScrollToSection = (sectionId) => {
+    navigate("/"); // navigate to the home page
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Allow time for the navigation to complete
+  };
 
   return (
     <header
-      className={`p-4 fixed top-0 left-0 w-full z-10 shadow-md    ${
+      className={`p-4 fixed top-0 left-0 w-full z-10 shadow-md ${
         isDarkMode
           ? "bg-dark-bg text-dark-text shadow-gray-600"
-          : "bg-light-bg text-light-text "
+          : "bg-light-bg text-light-text"
       }`}
     >
-      <nav className=" container max-w-7xl mx-auto px-4">
+      <nav className="container max-w-7xl mx-auto px-4">
         <div className="flex justify-between">
           <div className="md:hidden flex items-center">
             <button
@@ -51,61 +87,79 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
           </div>
 
           <div className="hidden md:flex">
-            <a
-              href="#about"
+            <button
+              onClick={() => handleScrollToSection("about")}
               className={`${
                 isDarkMode
-                  ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover:text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium  `}
+                  ? activeSection === "about"
+                    ? "text-blue-500"
+                    : "text-dark-text hover:text-dark-primary"
+                  : activeSection === "about"
+                  ? "text-blue-500"
+                  : "text-light-text hover:text-light-primary"
+              } px-3 py-2 rounded-md text-sm font-medium`}
             >
               Home
-            </a>
-            <a
-              href="#projects"
+            </button>
+            <button
+              onClick={() => handleScrollToSection("projects")}
               className={`${
                 isDarkMode
-                  ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover:text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium `}
+                  ? activeSection === "projects"
+                    ? "text-blue-500"
+                    : "text-dark-text hover:text-dark-primary"
+                  : activeSection === "projects"
+                  ? "text-blue-500"
+                  : "text-light-text hover:text-light-primary"
+              } px-3 py-2 rounded-md text-sm font-medium`}
             >
-              {" "}
               Projects
-            </a>
-            <a
-              href="#publications"
+            </button>
+            <button
+              onClick={() => handleScrollToSection("publications")}
               className={`${
                 isDarkMode
-                  ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover:text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium `}
+                  ? activeSection === "publications"
+                    ? "text-blue-500"
+                    : "text-dark-text hover:text-dark-primary"
+                  : activeSection === "publications"
+                  ? "text-blue-500"
+                  : "text-light-text hover:text-light-primary"
+              } px-3 py-2 rounded-md text-sm font-medium`}
             >
-              {" "}
               Publications
-            </a>
-            <a
-              href="#workshop"
+            </button>
+            <button
+              onClick={() => handleScrollToSection("workshop")}
               className={`${
                 isDarkMode
-                  ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover:text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium `}
+                  ? activeSection === "workshop"
+                    ? "text-blue-500"
+                    : "text-dark-text hover:text-dark-primary"
+                  : activeSection === "workshop"
+                  ? "text-blue-500"
+                  : "text-light-text hover:text-light-primary"
+              } px-3 py-2 rounded-md text-sm font-medium`}
             >
-              {" "}
               Workshop & Presentations
-            </a>
-            <a
-              href="#"
+            </button>
+            <Link
+              to="/cv"
+              onClick={() => handleScrollToSection("cv")}
               className={`${
                 isDarkMode
-                  ? "text-dark-text hover:text-dark-primary"
-                  : " text-light-text hover:text-light-primary"
-              } px-3 py-2 rounded-md text-sm font-medium `}
+                  ? activeSection === "cv"
+                    ? "text-blue-500"
+                    : "text-dark-text hover:text-dark-primary"
+                  : activeSection === "cv"
+                  ? "text-blue-500"
+                  : "text-light-text hover:text-light-primary"
+              } px-3 py-2 rounded-md text-sm font-medium`}
             >
-              {" "}
               CV
-            </a>
+            </Link>
           </div>
+
           {profile && (
             <div className="flex flex-row items-center space-x-5">
               <a
@@ -133,61 +187,77 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
       {/* Mobile Drawer */}
       {isOpen && (
         <nav className="md:hidden mt-2">
-          <a
-            href="#about"
+          <button
+            onClick={() => handleScrollToSection("about")}
             className={`block ${
               isDarkMode
-                ? "text-dark-text  hover:bg-dark-bg"
-                : " text-light-text hover:bg-light-bg"
-            } px-3 py-2 rounded-md text-sm font-medium `}
-            onClick={toggleDrawer}
+                ? activeSection === "about"
+                  ? "text-blue-500"
+                  : "text-dark-text hover:bg-dark-bg"
+                : activeSection === "about"
+                ? "text-blue-500"
+                : "text-light-text hover:bg-light-bg"
+            } px-3 py-2 rounded-md text-sm font-medium`}
           >
             Home
-          </a>
-          <a
-            href="#projects"
+          </button>
+          <button
+            onClick={() => handleScrollToSection("projects")}
             className={`block ${
               isDarkMode
-                ? "text-dark-text  hover:bg-dark-bg"
-                : " text-light-text hover:bg-light-bg"
-            } px-3 py-2 rounded-md text-sm font-medium `}
-            onClick={toggleDrawer}
+                ? activeSection === "projects"
+                  ? "text-blue-500"
+                  : "text-dark-text hover:bg-dark-bg"
+                : activeSection === "projects"
+                ? "text-blue-500"
+                : "text-light-text hover:bg-light-bg"
+            } px-3 py-2 rounded-md text-sm font-medium`}
           >
             Projects
-          </a>
-          <a
-            href="#publications"
+          </button>
+          <button
+            onClick={() => handleScrollToSection("publications")}
             className={`block ${
               isDarkMode
-                ? "text-dark-text  hover:bg-dark-bg"
-                : " text-light-text hover:bg-light-bg"
-            } px-3 py-2 rounded-md text-sm font-medium `}
-            onClick={toggleDrawer}
+                ? activeSection === "publications"
+                  ? "text-blue-500"
+                  : "text-dark-text hover:bg-dark-bg"
+                : activeSection === "publications"
+                ? "text-blue-500"
+                : "text-light-text hover:bg-light-bg"
+            } px-3 py-2 rounded-md text-sm font-medium`}
           >
             Publications
-          </a>
-          <a
-            href="#workshop"
+          </button>
+          <button
+            onClick={() => handleScrollToSection("workshop")}
             className={`block ${
               isDarkMode
-                ? "text-dark-text  hover:bg-dark-bg"
-                : " text-light-text hover:bg-light-bg"
-            } px-3 py-2 rounded-md text-sm font-medium `}
-            onClick={toggleDrawer}
+                ? activeSection === "workshop"
+                  ? "text-blue-500"
+                  : "text-dark-text hover:bg-dark-bg"
+                : activeSection === "workshop"
+                ? "text-blue-500"
+                : "text-light-text hover:bg-light-bg"
+            } px-3 py-2 rounded-md text-sm font-medium`}
           >
             Workshop & Presentations
-          </a>
-          <a
-            href="#"
+          </button>
+          <Link
+            to="/cv"
+            onClick={() => handleScrollToSection("cv")}
             className={`block ${
               isDarkMode
-                ? "text-dark-text  hover:bg-dark-bg"
-                : " text-light-text hover:bg-light-bg"
-            } px-3 py-2 rounded-md text-sm font-medium `}
-            onClick={toggleDrawer}
+                ? activeSection === "cv"
+                  ? "text-blue-500"
+                  : "text-dark-text hover:bg-dark-bg"
+                : activeSection === "cv"
+                ? "text-blue-500"
+                : "text-light-text hover:bg-light-bg"
+            } px-3 py-2 rounded-md text-sm font-medium`}
           >
             CV
-          </a>
+          </Link>
         </nav>
       )}
     </header>
