@@ -1,7 +1,42 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Publications = ({ isDarkMode }) => {
+  const [publications, setPublications] = useState([]);
+  const [error, setError] = useState("");
+  const token = process.env.REACT_APP_TOKKEN;
+  const api = process.env.REACT_APP_API_URL;
+  const [loading, setLoading] = useState(true);
   const arr = [1, 2, 3, 4, 5];
+
+  const fetchData = async () => {
+    try {
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      };
+
+      const responsse = await axios.get(
+        `${api}/api/publications1/?populate=image`,
+        {
+          headers,
+        }
+      );
+
+      const result = await responsse.data;
+      setPublications(result.data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(publications);
   return (
     <section
       id="publications"
@@ -16,36 +51,39 @@ const Publications = ({ isDarkMode }) => {
           </h2>
         </div>
         <div className="w-/3/4 flex-col ">
-          {arr.map(() => (
-            <div className=" flex flex-row items-center my-5">
-              <div className=" w-3/4 ">
-                <div className="  text-2xl pb-5 hover:text-blue-700 hover:underline">
-                  <a href="https://smartcsvtool.com">
-                    Urbanization-led land cover change impacts terrestrial
-                    carbon storage capacity: A high-resolution remote
-                    sensing-based nation-wide assessment in Pakistan (1990–2020)
+          {publications &&
+            publications.map((publication) => (
+              <div
+                className=" flex flex-row items-center my-5"
+                key={publication.id}
+              >
+                <div className=" w-3/4 ">
+                  <div className="  text-2xl pb-5 hover:text-blue-700 hover:underline">
+                    <a href={publication.link} target="blank">
+                      {publication.title}
+                    </a>
+                  </div>
+                  <a
+                    href={publication.link}
+                    target="blank"
+                    className=" text-gray-500 hover:underline "
+                  >
+                    With the global upsurge in climatic extremes, disasters are
+                    causing more significant damages. While disaster risk
+                    management (DRM) is a …
                   </a>
                 </div>
-                <a
-                  href="https://smartcsvtool.com"
-                  className=" text-gray-500 hover:underline "
-                >
-                  With the global upsurge in climatic extremes, disasters are
-                  causing more significant damages. While disaster risk
-                  management (DRM) is a …
-                </a>
+                <div className=" w-1/4">
+                  <a href={publication.link} target="blank" className="">
+                    <img
+                      src={api + "/" + publication.image?.url}
+                      alt="publication image"
+                      className="w-[10vw] h-[20vh]  object-cover mx-auto transition-transform transform hover:scale-105"
+                    />
+                  </a>
+                </div>
               </div>
-              <div className=" w-1/4">
-                <a href="https://smartcvtool.com" className="">
-                  <img
-                    src="http://78.47.152.86:1337/uploads/thumbnail_photo_2024_08_27_13_40_03_750x430_a2c3fa5137.jpg"
-                    alt="publication image"
-                    className="w-[10vw] h-[20vh]  object-cover mx-auto"
-                  />
-                </a>
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </section>

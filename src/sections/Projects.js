@@ -53,6 +53,7 @@ const Projects = ({ isDarkMode }) => {
                   className={`${
                     isDarkMode ? " bg-dark-bg" : "bg-light-bg"
                   } w-1/4 p-5`}
+                  key={project.id}
                 >
                   <div className="mb-5 text-gray-500 text-sm">
                     <span>Last updated on {project.last_updated}</span>
@@ -75,9 +76,9 @@ const Projects = ({ isDarkMode }) => {
                       {project.title}
                     </a>
                   </div>
-                  <di className=" py-2">
+                  <div className=" py-2">
                     <p>{project.description}</p>
-                  </di>
+                  </div>
                 </div>
               );
             })}
