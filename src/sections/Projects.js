@@ -7,7 +7,7 @@ const Projects = ({ isDarkMode, projects }) => {
 
   return (
     <section id="projects" className="pt-20 pb-12">
-      <div className="flex flex-col w-5/6 mx-auto">
+      <div className="flex flex-col mx-auto">
         <div className=" mx-auto mb-5">
           <h1 className="text-4xl font-serif leading-relaxed"> Projects</h1>
         </div>
@@ -18,7 +18,7 @@ const Projects = ({ isDarkMode, projects }) => {
                 <div
                   className={`${
                     isDarkMode ? " bg-dark-bg" : "bg-light-bg"
-                  } w-1/4 p-5`}
+                  } lg:w-1/4 md:w-1/3 w-[90vw] p-5`}
                   key={project.id}
                 >
                   <div className="mb-5 text-gray-500 text-sm">

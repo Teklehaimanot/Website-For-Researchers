@@ -22,7 +22,7 @@ const Home = ({ isDarkMode, profile, Interests, educations }) => {
               <img
                 src={api + "/" + profile.profile_pic?.url}
                 alt="profile preview"
-                className=" lg:w-[17vw] lg:h-[17vw] md:w-[30vw] md:h-[30vw] sm:w-[40vw] sm:h-[40vw] w-[60vw] h-[60vw] rounded-full object-cover mx-auto"
+                className=" lg:w-[17vw] lg:h-[17vw] md:w-[30vw] md:h-[30vw] sm:w-[30vw] sm:h-[30vw] w-[50vw] h-[50vw] rounded-full object-cover mx-auto"
               />
               <h2 className=" text-4xl font-light ">{profile.name}</h2>
               <h3 className="text-lg text-gray-500">{profile.position}</h3>
@@ -73,12 +73,12 @@ const Home = ({ isDarkMode, profile, Interests, educations }) => {
           </div>
           <div className="lg:w-3/5 ">
             <div>
-              <p className=" font-serif text-xl my-5 text-pretty leading-relaxed tracking-wide whitespace-pre-line ">
+              <p className=" font-serif md:text-xl text-md my-5 text-pretty leading-relaxed tracking-wide whitespace-pre-line ">
                 {profile.description}
               </p>
             </div>
-            <div className="flex flex-row  space-x-10">
-              <div className="w-1/2">
+            <div className="flex  flex-col md:flex-row md:space-x-10 ">
+              <div className="md:w-1/2">
                 <h3 className=" text-2xl font-serif">Interests</h3>
                 <ul className=" ml-7 my-2  font-serif  leading-relaxed tracking-wide list-disc list-inside space-y-2">
                   {Interests?.map((interest) => (
@@ -86,7 +86,7 @@ const Home = ({ isDarkMode, profile, Interests, educations }) => {
                   ))}
                 </ul>
               </div>
-              <div className="1/2">
+              <div className="md:w-1/2">
                 <h3 className=" text-2xl font-serif">Education</h3>
                 <ul className=" ml-7 my-2  font-serif  leading-relaxed tracking-wide space-y-3">
                   {educations?.map((education) => (
