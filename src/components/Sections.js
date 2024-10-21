@@ -38,13 +38,10 @@ const Sections = ({ isDarkMode }) => {
       const response3 = await axios.get(`${api}/api/educations`, {
         headers,
       });
-      const response4 = await axios.get(
-        `${api}/api/projects1/?populate=image`,
-        {
-          headers,
-        }
-      );
-
+      const response4 = await axios.get(`${api}/api/projects/?populate=image`, {
+        headers,
+      });
+      console.log(response4);
       const response5 = await axios.get(
         `${api}/api/publications1/?populate=image`,
         {
