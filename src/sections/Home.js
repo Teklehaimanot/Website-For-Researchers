@@ -106,15 +106,6 @@ const Home = ({ isDarkMode, profile, Interests, educations }) => {
                       </div>
                     </li>
                   ))}
-                  <li className=" flex flex-row space-x-4 ">
-                    <FaGraduationCap size={24} />
-                    <div className="font-serif  leading-relaxed tracking-wide">
-                      <p>PhD in Geography (cont.), 2026</p>
-                      <p className=" font-light  text-sm text-gray-500">
-                        Hong Kong Baptist University - HK
-                      </p>
-                    </div>
-                  </li>
                 </ul>
               </div>
             </div>
