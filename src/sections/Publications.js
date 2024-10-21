@@ -32,9 +32,7 @@ const Publications = ({ isDarkMode, publications }) => {
                     target="blank"
                     className=" text-gray-500 hover:underline "
                   >
-                    With the global upsurge in climatic extremes, disasters are
-                    causing more significant damages. While disaster risk
-                    management (DRM) is a …
+                    {publication.description}
                   </a>
                 </div>
                 <div className="lg:w-1/4 w-[40vw]">
