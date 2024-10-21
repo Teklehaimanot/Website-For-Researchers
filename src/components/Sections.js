@@ -32,7 +32,7 @@ const Sections = ({ isDarkMode }) => {
           headers,
         }
       );
-      const response2 = await axios.get(`${api}/api/interests1`, {
+      const response2 = await axios.get(`${api}/api/interests`, {
         headers,
       });
       const response3 = await axios.get(`${api}/api/educations`, {
