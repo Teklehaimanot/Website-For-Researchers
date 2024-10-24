@@ -21,28 +21,13 @@ const Publications = ({ isDarkMode, publications }) => {
                 className=" flex flex-row lg:items-center my-5"
                 key={publication.id}
               >
-                <div className=" lg:w-3/4 w-[60vw]">
-                  <div className=" lg:text-2xl pb-5 hover:text-blue-700 hover:underline">
+                <div className=" lg:w-full w-[90vw]">
+                  <div className=" xl:text-lg pb-5 hover:text-blue-500 hover:underline">
                     <a href={publication.link} target="blank">
                       {publication.title}
                     </a>
                   </div>
-                  <a
-                    href={publication.link}
-                    target="blank"
-                    className=" text-gray-500 hover:underline "
-                  >
-                    {publication.description}
-                  </a>
-                </div>
-                <div className="lg:w-1/4 w-[40vw]">
-                  <a href={publication.link} target="blank" className="">
-                    <img
-                      src={api + "/" + publication.image?.url}
-                      alt="publication image"
-                      className=" h-[30vh] w-[30vw]  object-cover mx-auto transition-transform transform hover:scale-105"
-                    />
-                  </a>
+                  <p className=" text-gray-500 ">{publication.description}</p>
                 </div>
               </div>
             ))}
