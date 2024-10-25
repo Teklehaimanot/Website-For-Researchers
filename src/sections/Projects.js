@@ -28,7 +28,7 @@ const Projects = ({ isDarkMode, projects }) => {
                     <div>
                       <img
                         src={api + "/" + project.image?.url}
-                        alt=" project demo"
+                        alt=" project image"
                         className="h-80  object-cover transition-transform transform hover:scale-105  "
                       />
                     </div>
@@ -37,12 +37,12 @@ const Projects = ({ isDarkMode, projects }) => {
                     <a
                       href={project.link}
                       target="blank"
-                      className="text-xl  hover:text-blue-700"
+                      className="text-lg font-sans  hover:text-blue-500"
                     >
                       {project.title}
                     </a>
                   </div>
-                  <div className=" py-2">
+                  <div className=" py-2  text-sm">
                     <p>{project.description}</p>
                   </div>
                 </div>

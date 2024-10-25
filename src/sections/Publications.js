@@ -1,3 +1,5 @@
+import PublicationCard from "../components/PublicationCard";
+
 const Publications = ({ isDarkMode, publications }) => {
   const api = process.env.REACT_APP_API_URL;
 
@@ -17,19 +19,7 @@ const Publications = ({ isDarkMode, publications }) => {
         <div className="lg:w-/3/4 flex-col ">
           {publications &&
             publications.map((publication) => (
-              <div
-                className=" flex flex-row lg:items-center my-5"
-                key={publication.id}
-              >
-                <div className=" lg:w-full w-[90vw]">
-                  <div className=" xl:text-lg pb-5 hover:text-blue-500 hover:underline">
-                    <a href={publication.link} target="blank">
-                      {publication.title}
-                    </a>
-                  </div>
-                  <p className=" text-gray-500 ">{publication.description}</p>
-                </div>
-              </div>
+              <PublicationCard publication={publication} />
             ))}
         </div>
       </div>
