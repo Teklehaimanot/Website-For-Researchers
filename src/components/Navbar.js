@@ -163,14 +163,14 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
           {profile && (
             <div className="flex flex-row items-center space-x-5">
               <a
-                href={profile.social_medias[1]?.link}
+                href={profile.social_medias[0]?.link}
                 target="_blank"
                 className="hidden md:block"
               >
                 <MdEmail size={21} />
               </a>
               <a
-                href={profile.social_medias[3]?.link}
+                href={profile.social_medias[2]?.link}
                 target="_blank"
                 className="hidden md:block"
               >
