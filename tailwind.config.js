@@ -18,7 +18,7 @@ module.exports = {
           bg: "#fff",
           bg2: "#efefef",
           text: "#333333",
-          primary: "#1a202c",
+          primary: "#4a90e2",
           icon: "#bbdefb",
           // Add more colors as needed
         },

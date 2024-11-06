@@ -5,6 +5,7 @@ import Sections from "./components/Sections";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MyCv from "./components/MyCv";
+import Visualizations from "./sections/Visualizations";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(getInitialTheme());
@@ -84,6 +85,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Sections isDarkMode={isDarkMode} />} />
           <Route path="/cv" element={<MyCv />} />
+          <Route
+            path="/visualizations"
+            element={<Visualizations isDarkMode={isDarkMode} />}
+          />
         </Routes>
       </div>
     </Router>

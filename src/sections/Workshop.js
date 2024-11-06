@@ -6,9 +6,9 @@ const Workshop = ({ workshops }) => {
   );
   return (
     <section id="workshop" className=" pt-20 pb-20">
-      <div className=" w-3/4 mx-auto">
+      <div className=" md:w-3/4 mx-auto">
         <div>
-          <h2 className="text-4xl font-serif leading-relaxed border-b-2">
+          <h2 className=" mx-5 text-4xl font-serif leading-relaxed border-b-2">
             Training & Workshops
           </h2>
         </div>
