@@ -40,7 +40,7 @@ const Workshop = ({ workshops }) => {
                   </span>
                 </li>
               </div>
-              <div className=" mx-5 my-3">
+              <div className=" mx-5 text-sm my-3 text-pretty leading-relaxed tracking-wide whitespace-pre-line">
                 <p>{workshop.description}</p>
               </div>
             </div>

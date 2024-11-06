@@ -257,8 +257,21 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
             Training & Workshops
           </button>
           <Link
+            to="/visualizations"
+            className={`block ${
+              isDarkMode
+                ? activeSection === "visualizations"
+                  ? "text-blue-500"
+                  : "text-dark-text hover:bg-dark-bg"
+                : activeSection === "visualizations"
+                ? "text-blue-500"
+                : "text-light-text hover:bg-light-bg"
+            } px-3 py-2 rounded-md text-sm font-medium`}
+          >
+            Visualizations
+          </Link>
+          <Link
             to="/cv"
-            onClick={() => handleScrollToSection("cv")}
             className={`block ${
               isDarkMode
                 ? activeSection === "cv"
