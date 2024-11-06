@@ -113,7 +113,7 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
                   : "text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium`}
             >
-              Projects
+              Grants and Awards
             </button>
             <button
               onClick={() => handleScrollToSection("publications")}
@@ -141,7 +141,7 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
                   : "text-light-text hover:text-light-primary"
               } px-3 py-2 rounded-md text-sm font-medium`}
             >
-              Workshop & Presentations
+              Training & Workshops
             </button>
             <Link
               to="/cv"
@@ -213,7 +213,7 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
                 : "text-light-text hover:bg-light-bg"
             } px-3 py-2 rounded-md text-sm font-medium`}
           >
-            Projects
+            Grants and Awards
           </button>
           <button
             onClick={() => handleScrollToSection("publications")}
@@ -241,7 +241,7 @@ const Navbar = ({ toggleTheme, isDarkMode, profile }) => {
                 : "text-light-text hover:bg-light-bg"
             } px-3 py-2 rounded-md text-sm font-medium`}
           >
-            Workshop & Presentations
+            Training & Workshops
           </button>
           <Link
             to="/cv"

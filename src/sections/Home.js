@@ -8,6 +8,11 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Home = ({ isDarkMode, profile, Interests, educations }) => {
   const api = process.env.REACT_APP_API_URL;
+
+  const myEducations = educations.sort(
+    (a, b) => new Date(b.year) - new Date(a.year)
+  );
+
   return (
     <section
       id="about"
@@ -108,7 +113,7 @@ const Home = ({ isDarkMode, profile, Interests, educations }) => {
               <div className="md:w-1/2">
                 <h3 className=" text-2xl font-serif">Education</h3>
                 <ul className=" ml-7 my-2 text-sm font-serif  leading-relaxed tracking-wide space-y-3">
-                  {educations?.map((education) => (
+                  {myEducations?.map((education) => (
                     <li
                       className=" flex flex-row space-x-4 "
                       key={education.id}

@@ -42,12 +42,9 @@ const Sections = ({ isDarkMode }) => {
         headers,
       });
 
-      const response5 = await axios.get(
-        `${api}/api/publications/?populate=image`,
-        {
-          headers,
-        }
-      );
+      const response5 = await axios.get(`${api}/api/publications`, {
+        headers,
+      });
       const response6 = await axios.get(
         `${api}/api/workshop-and-presentations`,
         {

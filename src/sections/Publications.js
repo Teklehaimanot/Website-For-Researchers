@@ -3,6 +3,10 @@ import PublicationCard from "../components/PublicationCard";
 const Publications = ({ isDarkMode, publications }) => {
   const api = process.env.REACT_APP_API_URL;
 
+  const myPublication = publications.sort(
+    (a, b) => new Date(b.year) - new Date(a.year)
+  );
+
   return (
     <section
       id="publications"
@@ -17,9 +21,9 @@ const Publications = ({ isDarkMode, publications }) => {
           </h2>
         </div>
         <div className="lg:w-/3/4 flex-col ">
-          {publications &&
-            publications.map((publication) => (
-              <PublicationCard publication={publication} />
+          {myPublication &&
+            myPublication.map((publication) => (
+              <PublicationCard publication={publication} key={publication.id} />
             ))}
         </div>
       </div>

@@ -2,18 +2,24 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Projects = ({ isDarkMode, projects }) => {
-  // const [projects, setProjects] = useState([]);
   const api = process.env.REACT_APP_API_URL;
+
+  const myProjects = projects.sort(
+    (a, b) => new Date(b.last_updated) - new Date(a.last_updated)
+  );
 
   return (
     <section id="projects" className="pt-20 pb-12">
       <div className="flex flex-col mx-auto">
         <div className=" mx-auto mb-5">
-          <h1 className="text-4xl font-serif leading-relaxed"> Projects</h1>
+          <h1 className="text-4xl font-serif leading-relaxed">
+            {" "}
+            Grants and Awards
+          </h1>
         </div>
         <div className=" flex flex-row flex-wrap w-full gap-10  justify-center py-2  ">
-          {projects &&
-            projects.map((project) => {
+          {myProjects &&
+            myProjects.map((project) => {
               return (
                 <div
                   className={`${
